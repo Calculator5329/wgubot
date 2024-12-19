@@ -1,0 +1,156 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<aiml>
+    
+    <category>
+        <pattern>*</pattern>
+        <template>
+            Hello there! Type start to begin.
+        </template>
+    </category>
+    
+     <category>
+        <pattern>start</pattern>
+        <template>
+            <think><set name = "topic">start</set></think>
+            What is your name? Respond with my name is ___.
+        </template>
+    </category>
+    
+    
+    <topic name="start">
+        
+        <category>
+        <pattern>* name is *</pattern>
+        <template>
+            <think><set name = "username"><star index="2"></star></set></think>
+            Welcome <get name = "username"></get>! Are you seeking career advice?
+        </template>
+        </category>
+        
+        <category>
+        <pattern>yes</pattern>
+        <template>
+            Awesome! I will need to ask you a couple questions. What is your current major? 
+            <button>
+            <text>Computer Science</text>
+            <postback>Computer Science</postback>
+            </button>
+            
+            <button>
+            <text>Data Science</text>
+            <postback>Data Science</postback>
+            </button>
+        </template>
+        </category>
+        
+        <category>
+        <pattern>Computer Science</pattern>
+        <template>
+            Which do you prefer?
+            <button>
+            <text>Programming Applications</text>
+            <postback>Software Engineering</postback>
+            </button>
+            
+            <button>
+            <text>Creating Websites</text>
+            <postback>Web Developer</postback>
+            </button>
+        </template>
+        </category>
+        
+        <category>
+        <pattern>Software Engineering</pattern>
+        <template>
+            A good job for you would be <link>
+        <text>Software Engineer</text>
+        <url>https://www.indeed.com/hire/job-description/software-engineer</url>
+    </link>!
+        </template>
+        </category>
+        
+        <category>
+        <pattern>Web Developer</pattern>
+        <template>
+            Which interests you more?
+            <button>
+            <text>UI/UX</text>
+            <postback>Frontend Web Development</postback>
+            </button>
+            
+            <button>
+            <text>Data/API's/Servers</text>
+            <postback>Backend Web Development</postback>
+            </button>
+        </template>
+        </category>
+        
+        <category>
+        <pattern>Frontend Web Development</pattern>
+        <template>
+            A good job for you would be <link>
+        <text>Frontend Web Developer</text>
+        <url>https://www.indeed.com/hire/job-description/front-end-developer</url>
+    </link>!
+        </template>
+        </category>
+        
+        <category>
+        <pattern>Backend Web Development</pattern>
+        <template>
+            A good job for you would be <link>
+        <text>Backend Web Developer</text>
+        <url>https://www.indeed.com/hire/job-description/back-end-developer</url>
+    </link>!
+        </template>
+        </category>
+        
+        <category>
+        <pattern>Data Science</pattern>
+        <template>
+            Which interests you more?
+            <button>
+            <text>Visualizing Data</text>
+            <postback>Data Analyst</postback>
+            </button>
+            
+            <button>
+            <text>AI/ML</text>
+            <postback>AI Engineer</postback>
+            </button>
+        </template>
+        </category>
+        
+        
+        <category>
+        <pattern>Data Analyst</pattern>
+        <template>
+            A good job for you would be <link>
+        <text>Data Analyst</text>
+        <url>https://www.indeed.com/career-advice/finding-a-job/data-analyst-job-description</url>
+    </link>!
+        </template>
+        </category>
+        
+        
+        <category>
+        <pattern>AI Engineer</pattern>
+        <template>
+            A good job for you would be <link>
+        <text>AI Engineer</text>
+        <url>https://www.indeed.com/career-advice/finding-a-job/ai-engineer</url>
+    </link>!
+        </template>
+        </category>
+        
+        <category>
+        <pattern>no</pattern>
+        <think><set name = "topic"></set></think>
+        <template>
+            Thanks for trying out this chatbot!
+        </template>
+        </category>
+        
+    </topic>
+  
+</aiml>
